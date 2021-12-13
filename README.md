@@ -7,7 +7,7 @@ of concurrency in Go using `atomic` to ensure thread-safe updates to a shared
 variable and `sync.WaitGroup` to wait for a collection of goroutines to finish.
 ## To use:
 
-1. Make sure $GOPATH has a `src` dir inside.
+1. Make sure `$GOPATH` has a `src` dir inside.
 
 2. Navigate to the `counter` directory and build the `counter` service:
 
@@ -16,14 +16,17 @@ variable and `sync.WaitGroup` to wait for a collection of goroutines to finish.
     protoc counter.proto -I. --go_out=:$GOPATH/src --go-grpc_out=:$GOPATH/src
     ```
 
-3. Start the server:
+3. In the .mod files for `client` and `server`, update the `replace` line to point to
+   your `$GOPATH` rather than the one that is set up for my machine.
+
+4. Start the server:
 
     ```
     cd server
     go run main.go
     ```
 
-4. Start the client:
+5. Start the client:
 
     ```
     cd client
